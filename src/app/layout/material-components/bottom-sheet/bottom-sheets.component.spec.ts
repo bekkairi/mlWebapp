@@ -1,24 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BottomSheetComponent } from './bottom-sheets.component';
+import {BottomSheetComponent} from './bottom-sheets.component';
 
 describe('BottomSheetComponent', () => {
-    let component: BottomSheetComponent;
-    let fixture: ComponentFixture<BottomSheetComponent>;
+  let component: BottomSheetComponent;
+  let fixture: ComponentFixture<BottomSheetComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [BottomSheetComponent]
-        }).compileComponents();
-    }));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [BottomSheetComponent]
+    }).compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(BottomSheetComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(BottomSheetComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'app-black-page',
-    templateUrl: './black-page.component.html',
-    styleUrls: ['./black-page.component.scss']
+  selector: 'app-black-page',
+  templateUrl: './black-page.component.html',
+  styleUrls: ['./black-page.component.scss']
 })
 export class BlackPageComponent implements OnInit {
-    constructor() {}
+  constructor() {
+  }
 
-    ngOnInit() {}
+  ngOnInit() {
+  }
 }

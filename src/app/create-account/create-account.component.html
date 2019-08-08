@@ -1,0 +1,35 @@
+<div class="login-page">
+  <div class="content" fxlayout="row">
+
+    <form [formGroup]="createAccountForm">
+      <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+        <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+          <div fxFlexFill>
+            <webcam (imageCapture)="handleImage($event)" [height]="300" [trigger]="triggerObservable"
+                    [width]="300"></webcam>
+          </div>
+        </div>
+
+        <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+          <div fxFlexFill>
+            <mat-form-field class="w-100">
+              <input [(ngModel)]="userName" formControlName="userName" id="userName" matInput placeholder="User name">
+              <mat-error *ngIf="hasError('userName')">{{userNameMsgError}}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div fxFlex fxLayout="row" fxLayout.lt-md="row">
+          <div fxFlexFill>
+            <button (click)="createAccount();" [disabled]="createAccountForm.invalid" class="w-100" color="primary"
+                    mat-raised-button>Create acccount
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+</div>
+

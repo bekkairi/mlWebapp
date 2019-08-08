@@ -1,0 +1,23 @@
+[
+  {
+    "COMPONENT": "INPUT.USER.VALIDATION",
+    "MESSAGES": [
+      {
+        "TYPE": "required",
+        "MESSAGE": "user name is required"
+      },
+      {
+        "TYPE": "minlength",
+        "MESSAGE": "Minimum length is 8"
+      },
+      {
+        "TYPE": "maxlength",
+        "MESSAGE": "Maximum length is 15"
+      },
+      {
+        "TYPE": "userNameExists",
+        "MESSAGE": "Please choose other user, this one is used "
+      }
+    ]
+  }
+]

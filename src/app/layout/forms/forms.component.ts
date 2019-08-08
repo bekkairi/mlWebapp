@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-    selector: 'app-forms',
-    templateUrl: './forms.component.html',
-    styleUrls: ['./forms.component.scss']
+  selector: 'app-forms',
+  templateUrl: './forms.component.html',
+  styleUrls: ['./forms.component.scss']
 })
-export class FormsComponent {}
+export class FormsComponent {
+}

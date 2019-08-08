@@ -1,11 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
 
-import { BlackPageRoutingModule } from './black-page-routing.module';
-import { BlackPageComponent } from './black-page.component';
+import {BlackPageRoutingModule} from './black-page-routing.module';
+import {BlackPageComponent} from './black-page.component';
 
 @NgModule({
-    imports: [CommonModule, BlackPageRoutingModule],
-    declarations: [BlackPageComponent]
+  imports: [CommonModule, BlackPageRoutingModule],
+  declarations: [BlackPageComponent]
 })
-export class BlackPageModule {}
+export class BlackPageModule {
+}

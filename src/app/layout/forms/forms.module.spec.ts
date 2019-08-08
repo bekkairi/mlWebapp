@@ -1,13 +1,13 @@
-import { FormsModule } from './forms.module';
+import {FormsModule} from './forms.module';
 
 describe('FormsModule', () => {
-    let formsModule: FormsModule;
+  let formsModule: FormsModule;
 
-    beforeEach(() => {
-        formsModule = new FormsModule();
-    });
+  beforeEach(() => {
+    formsModule = new FormsModule();
+  });
 
-    it('should create an instance', () => {
-        expect(formsModule).toBeTruthy();
-    });
+  it('should create an instance', () => {
+    expect(formsModule).toBeTruthy();
+  });
 });
