@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {RegressionDialogComponent} from '../../../components/dialog/regression-dialog/regression-dialog.component';
 
 @Component({
   selector: 'app-stat',
@@ -12,9 +14,27 @@ export class StatComponent implements OnInit {
   @Input() label: string;
   @Input() data: number;
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
   }
 
   ngOnInit() {
+  }
+
+  loadModel() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+    };
+
+    const dialogRef = this.dialog.open(RegressionDialogComponent,
+      dialogConfig);
+
+
+    dialogRef.afterClosed().subscribe(
+      val => console.log('Dialog output:', val)
+    );
   }
 }

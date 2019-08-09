@@ -9,7 +9,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {MachineLearningModule} from './machine-learning/machine-learning-module.module';
 import {LayoutModule} from './layout/layout.module';
-// AoT requires an exported function for factories
+
 export const createTranslateLoader = (http: HttpClient) => {
   /* for development
   return new TranslateHttpLoader(
