@@ -1,7 +1,14 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatBottomSheetModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatProgressBarModule} from '@angular/material';
+import {
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatProgressBarModule,
+  MatSnackBarModule
+} from '@angular/material';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegressionDialogComponent} from './regression-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -21,7 +28,8 @@ import {ErrorBottomSheetComponent} from './error-bottom-sheet-component';
     MatDialogModule,
     MatBottomSheetModule,
     ReactiveFormsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   exports: [
     MatDialogModule,

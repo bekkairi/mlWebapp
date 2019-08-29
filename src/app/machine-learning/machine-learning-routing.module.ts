@@ -17,6 +17,10 @@ const routes: Routes = [
       {
         path: 'ml-dashboard',
         loadChildren: './ml-dashboard/ml-dashboard.module#MlDashboardModule'
+      },
+      {
+        path: 'regression',
+        loadChildren: './linear-regression/linear-regression.module#LinearRegressionModuleModule'
       }]
   }
 ];

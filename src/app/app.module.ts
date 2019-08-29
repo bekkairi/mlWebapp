@@ -1,5 +1,5 @@
 import {OverlayModule} from '@angular/cdk/overlay';
-import {NgModule} from '@angular/core';
+import {InjectionToken, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
@@ -10,6 +10,8 @@ import {AppComponent} from './app.component';
 import {MachineLearningModule} from './machine-learning/machine-learning-module.module';
 import {LayoutModule} from './layout/layout.module';
 import {HttpSpinnerInterceptorService} from './shared/services/http-spinner-interceptor.service';
+
+const DEFAULT_TIMEOUT = new InjectionToken<number>('defaultTimeout');
 
 export const createTranslateLoader = (http: HttpClient) => {
   /* for development
@@ -44,7 +46,8 @@ export const createTranslateLoader = (http: HttpClient) => {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpSpinnerInterceptorService,
       multi: true,
-    }
+    },
+    [{ provide: DEFAULT_TIMEOUT, useValue: 300000 }]
   ],
   bootstrap: [AppComponent]
 })
