@@ -10,6 +10,7 @@ import {AppComponent} from './app.component';
 import {MachineLearningModule} from './machine-learning/machine-learning-module.module';
 import {LayoutModule} from './layout/layout.module';
 import {HttpSpinnerInterceptorService} from './shared/services/http-spinner-interceptor.service';
+import {TimeOutInterceptor} from './shared/services/timeout-Interceptor';
 
 const DEFAULT_TIMEOUT = new InjectionToken<number>('defaultTimeout');
 
@@ -47,7 +48,11 @@ export const createTranslateLoader = (http: HttpClient) => {
       useClass: HttpSpinnerInterceptorService,
       multi: true,
     },
-    [{ provide: DEFAULT_TIMEOUT, useValue: 300000 }]
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TimeOutInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })

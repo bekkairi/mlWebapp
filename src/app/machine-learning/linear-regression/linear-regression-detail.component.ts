@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {HttpWSService} from '../../shared/services/http-ws.service';
 
 @Component({
   selector: 'app-linear-regression-detail',
@@ -9,15 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 export class LinearRegressionDetailComponent implements OnInit {
 
   regressionName: any;
+  model: Regressionmodel;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private httpWSService: HttpWSService) { }
 
   ngOnInit() {
     this.regressionName = this.route.paramMap.subscribe(
       e => {
-        console.log('reached');
-        this.regressionName = e.get('id');
-        console.log(this.regressionName);
+        const name = e.get('id');
+        this.regressionName = name;
+        const url = `model/${name}`;
+        this.httpWSService.doGet<Regressionmodel>(url).subscribe(
+          (data) => { this.model = data; },
+
+        );
       }
     );
   }

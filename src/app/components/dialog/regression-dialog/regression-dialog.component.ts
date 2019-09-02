@@ -3,12 +3,13 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpWSService} from '../../../shared/services/http-ws.service';
-import {catchError, map} from 'rxjs/operators';
+import {catchError, map, timeout} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {SpinnerServiceService} from '../../../shared/services/spinner-service.service';
 import {MAT_BOTTOM_SHEET_DATA, MatBottomSheet, MatSnackBar} from '@angular/material';
 import {ErrorBottomSheetComponent} from './error-bottom-sheet-component';
 import {Config} from '../../../create-account/test';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-regression-dialog',
@@ -24,7 +25,7 @@ export class RegressionDialogComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<RegressionDialogComponent>,
               @Inject(MAT_DIALOG_DATA) {type, description}: DialogData, private fb: FormBuilder, private httpWSService: HttpWSService,
-              public spinnerServiceService: SpinnerServiceService,  private _snackBar: MatSnackBar) {
+              public spinnerServiceService: SpinnerServiceService,  private _snackBar: MatSnackBar, private router: Router ) {
     this.type = type;
     this.description = description;
 
@@ -44,10 +45,10 @@ export class RegressionDialogComponent implements OnInit {
       map( e =>  e),
       catchError(err => {throw err; })).subscribe(
       res => {},
-      err =>  {console.log(err); this._snackBar.open('Server error', 'P', {
+      err =>  { this._snackBar.open('Server error', 'P', {
         duration: 4000,
       }); },
-      () =>     this.dialogRef.close()
+      () =>    { this.dialogRef.close() ; this.router.navigateByUrl('ml/regression/${this.modelName}'); }
 
   );
 

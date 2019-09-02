@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LinearRegressionDetailComponent } from './linear-regression-detail.component';
+import {LinearRegressionDetailComponent, Regressionmodel} from './linear-regression-detail.component';
+import {ActivatedRoute, Params} from '@angular/router';
+import {of} from 'rxjs';
+
 
 describe('LinearRegressionDetailComponent', () => {
   let component: LinearRegressionDetailComponent;
@@ -8,7 +11,19 @@ describe('LinearRegressionDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LinearRegressionDetailComponent ]
+      declarations: [LinearRegressionDetailComponent],
+      providers: [{
+        provide: ActivatedRoute,
+        useValue: {
+          paramMap: of({
+            get: () => {
+              return 10;
+            }
+          })
+        }
+      }
+      ]
+
     })
       .compileComponents();
   }));
@@ -21,5 +36,11 @@ describe('LinearRegressionDetailComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it ('parse json ' , ()  => {
+    const model: Regressionmodel = require('./test.json');
+   expect(model.analysis.columnAnalysis.length).toBe(10);
+
   });
 });
